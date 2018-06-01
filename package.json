@@ -1,22 +1,24 @@
 {
-  "name": "lemonov",
+  "name": "lemonov.github.io",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "\\"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lemonov/lemonov.git"
+    "url": "git+https://github.com/lemonov/lemonov.github.io.git"
   },
   "author": "Piotr \"Lemonov\" Lemańczyk",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/lemonov/lemonov/issues"
+    "url": "https://github.com/lemonov/lemonov.github.io/issues"
   },
-  "homepage": "https://github.com/lemonov/lemonov#readme",
+  "homepage": "https://github.com/lemonov/lemonov.github.io#readme",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-file-include": "^2.0.1",
+    "fancy-log": "^1.3.2"
   }
 }
