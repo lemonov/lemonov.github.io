@@ -1,0 +1,44 @@
+
+
+@import './colorscheme.scss';
+@import './progressbar.scss';
+
+.navigation-bar {
+  background: $color4;
+}
+
+.section-about {
+  background: $color1;
+}
+
+.section-certificates {
+  background: $color2;  
+}
+
+.section-contact {
+  background: $color3;  
+}
+
+.section-education {
+  background: $color1;  
+}
+
+.section-employment {
+  background: $color2;  
+}
+
+.section-skills {
+  background: $color3;  
+}
+
+
+.anchor:before { 
+  display: block; 
+  content: " "; 
+  height: 60px; 
+  visibility: hidden; 
+}
+
+.anchor { 
+    height: 100vh;    
+}

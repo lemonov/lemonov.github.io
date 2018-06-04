@@ -1,13 +1,21 @@
 var fileinclude = require('gulp-file-include');
 var log = require("fancy-log")
-
-gulp = require('gulp');
+var sass = require('gulp-sass');
+var gulp = require('gulp');
+var runSequence = require('run-sequence');
 
 gulp.task('default', function () {
-  taskFileInclude();
+  runSequence('sass', 'includeall')
 });
 
-function taskFileInclude() {
+gulp.task('sass', function () {
+  log("Compiling styles SASS")
+  gulp.src('./src/sass/**/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./src/staging/'));
+});
+
+gulp.task('includeall', function () {
   log("Including files")
   gulp.src(['./src/index.html'])
     .pipe(fileinclude({
@@ -15,4 +23,8 @@ function taskFileInclude() {
       basepath: '@file'
     }))
     .pipe(gulp.dest('./'));
-}
+});
+
+
+
+

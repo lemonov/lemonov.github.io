@@ -15,10 +15,10 @@
 
     <!-- Custom styles -->
     <style>
-        @@include('./content/css/styles.css')
+        @@include('./staging/styles.css')
     </style>
     <script>
-        @@include('./content/scripts/main.js')
+        @@include('./scripts/main.js')
     </script>
 </head>
 
@@ -28,47 +28,30 @@
         <div class="navbar-nav mr-auto">Logo or something</div>
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#About">About</a>
+                <a class="nav-link" href="#about">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#Skills">Skills</a>
+                <a class="nav-link" href="#skills">Skills</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#Certificates">Certificates</a>
+                <a class="nav-link" href="#certificates">Certificates</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#Education">Education</a>
+                <a class="nav-link" href="#education">Education</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#Employment">Employment</a>
+                <a class="nav-link" href="#employment">Employment</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#Contact">Contact</a>
+                <a class="nav-link" href="#contact">Contact</a>
             </li>
         </ul>
     </nav>
     <div class="tab-content">
-        <div class="anchor" id="About">
-            @@include('./content/html/about.html')
-        </div>
-        <div class="anchor" id="Skills">
-            @@include('./content/html/skills.html')
-        </div>
-        <div class="anchor" id="Certificates">
-            @@include('./content/html/certificates.html')
-        </div>
-        <div class="anchor" id="Education">
-            @@include('./content/html/education.html')
-        </div>
-        <div class="anchor" id="Employment">
-            @@include('./content/html/employment.html')
-        </div>
-        <div class="anchor" id="Contact">
-            @@include('./content/html/contact.html')
-        </div>
+        @@include('./html/sections/about.html') @@include('./html/sections/skills.html') @@include('./html/sections/certificates.html')
+        @@include('./html/sections/education.html') @@include('./html/sections/employment.html') @@include('./html/sections/contact.html')
     </div>
-
-    @@include('./scripts.html')
+        @@include('./html/scripts.html')
 </body>
 
 </html>

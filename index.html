@@ -15,16 +15,89 @@
 
     <!-- Custom styles -->
     <style>
-        .anchor:before { 
-    display: block; 
-    content: " "; 
-    margin-top: -60px; 
-    height: 60px; 
-    visibility: hidden; 
-  }
+        /* RGB */
+/* Coolors Exported Palette - coolors.co/eaf0ce-c0c5c1-7d8491-574b60-3f334d */
+.progress-bar {
+  position: relative;
+  background-color: transparent; }
+
+.bar {
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.progress {
+  height: 30px;
+  background-color: green;
+  animation-name: progress;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  border-radius: 5px; }
+
+.static {
+  width: 100%;
+  height: 30px;
+  background-color: #D3D3D3;
+  border-radius: 5px; }
+
+@keyframes progress {
+  0% {
+    width: 0; } }
+
+.navigation-bar {
+  background: #574b60; }
+
+.section-about {
+  background: #eaf0ce; }
+
+.section-certificates {
+  background: #c0c5c1; }
+
+.section-contact {
+  background: #7d8491; }
+
+.section-education {
+  background: #eaf0ce; }
+
+.section-employment {
+  background: #c0c5c1; }
+
+.section-skills {
+  background: #7d8491; }
+
+.anchor:before {
+  display: block;
+  content: " ";
+  height: 60px;
+  visibility: hidden; }
+
+.anchor {
+  height: 100vh; }
+
     </style>
     <script>
-        
+        console.clear();
+
+// Get all the Meters
+var meters = document.querySelectorAll('svg[data-value] .meter');
+
+meters.forEach(function (path) {
+  // Get the length of the path
+  var length = path.getTotalLength();
+  // console.log(length) once and hardcode the stroke-dashoffset and stroke-dasharray in the SVG if possible 
+  // or uncomment to set it dynamically
+  // path.style.strokeDashoffset = length;
+  // path.style.strokeDasharray = length;
+
+  // Get the value of the meter
+  var value = parseInt(path.parentNode.getAttribute('data-value'));
+  // Calculate the percentage of the total length
+  var to = length * ((100 - value) / 100);
+  // Trigger Layout in Safari hack https://jakearchibald.com/2013/animated-line-drawing-svg/
+  path.getBoundingClientRect();
+  // Set the Offset
+  path.style.strokeDashoffset = Math.max(0, to);
+});
     </script>
 </head>
 
@@ -34,110 +107,203 @@
         <div class="navbar-nav mr-auto">Logo or something</div>
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#About">About</a>
+                <a class="nav-link" href="#about">About</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#Skills">Skills</a>
+                <a class="nav-link" href="#skills">Skills</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#Certificates">Certificates</a>
+                <a class="nav-link" href="#certificates">Certificates</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#Education">Education</a>
+                <a class="nav-link" href="#education">Education</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#Employment">Employment</a>
+                <a class="nav-link" href="#employment">Employment</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#Contact">Contact</a>
+                <a class="nav-link" href="#contact">Contact</a>
             </li>
         </ul>
     </nav>
     <div class="tab-content">
-        <div class="anchor" id="About">
-            <h2>About</h2>
+        <div class="anchor section-about" id="about">
+    <h2>About</h2>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula tortor quis ligula suscipit sagittis. Donec rhoncus erat sed quam eleifend varius. Duis ut eleifend ipsum. Fusce facilisis porttitor libero, at finibus diam mattis sed. Maecenas ultrices odio vel elementum auctor. Nullam sit amet varius mauris. Maecenas vitae arcu sed orci lobortis sodales at eget arcu. Nulla feugiat fermentum odio. Pellentesque feugiat bibendum sapien, at molestie ligula pulvinar eu. Sed iaculis non felis ut finibus. Aliquam sapien elit, venenatis quis interdum ut, congue sodales nisi. Etiam tempor id lacus sit amet tincidunt.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula tortor quis ligula suscipit sagittis. Donec rhoncus
+    erat sed quam eleifend varius. Duis ut eleifend ipsum. Fusce facilisis porttitor libero, at finibus diam mattis sed.
+    Maecenas ultrices odio vel elementum auctor. Nullam sit amet varius mauris. Maecenas vitae arcu sed orci lobortis sodales
+    at eget arcu. Nulla feugiat fermentum odio. Pellentesque feugiat bibendum sapien, at molestie ligula pulvinar eu. Sed
+    iaculis non felis ut finibus. Aliquam sapien elit, venenatis quis interdum ut, congue sodales nisi. Etiam tempor id lacus
+    sit amet tincidunt. Suspendisse ac eleifend sapien. Sed orci ex, tristique id augue sit amet, tempus euismod nulla. Aenean
+    eget auctor eros. Vivamus nibh justo, ornare at dapibus at, feugiat vel nisl. Vestibulum malesuada pellentesque massa
+    laoreet dictum. Curabitur fringilla iaculis aliquam. Pellentesque tincidunt malesuada massa vitae egestas. Aliquam sollicitudin
+    elit sit amet nisl sodales, facilisis fermentum elit iaculis. Morbi dolor ipsum, vehicula in condimentum nec, ornare
+    at nunc. Quisque hendrerit ante sed velit rhoncus faucibus. Fusce eget nisl vel orci laoreet semper. Quisque erat sapien,
+    sodales ut leo at, iaculis pretium risus. Sed suscipit aliquam pretium. Morbi a velit id dui lacinia dignissim eu sed
+    turpis. Pellentesque venenatis lorem risus, eu volutpat massa dapibus sed. Quisque vehicula sed erat id lacinia. Nam
+    ut faucibus nisl, nec iaculis ligula. Vestibulum condimentum, purus in sagittis fermentum, dolor ante lacinia felis,
+    sed dapibus metus dui vel ligula. Suspendisse scelerisque metus turpis, ac facilisis enim mollis ac. Donec aliquam mi
+    quis velit feugiat eleifend. Mauris at sem libero. In et mi non justo porta semper. Ut efficitur, justo sed cursus dignissim,
+    nisl mi fermentum leo, faucibus efficitur sem felis ut tellus. Sed dapibus purus dui, in consectetur urna pellentesque
+    non. Nunc non neque vel arcu semper vestibulum. Maecenas nisl odio, mollis sit amet iaculis ut, hendrerit a felis. Aenean
+    facilisis at eros et dignissim. Aenean id lacus quis enim cursus facilisis a quis lorem. Ut semper aliquam scelerisque.
+    Proin gravida tortor eu dignissim consequat. Pellentesque felis magna, tincidunt a mauris in, condimentum tristique felis.
+    Nam consequat nec odio a sollicitudin. Donec eget volutpat libero. Nunc in luctus enim. Aliquam sed pharetra leo, et
+    dictum nisl. Morbi nec neque id lacus lacinia
+</div> <div class="anchor section-skills" id="skills">
+    <h2>Skills</h2>
 
-Suspendisse ac eleifend sapien. Sed orci ex, tristique id augue sit amet, tempus euismod nulla. Aenean eget auctor eros. Vivamus nibh justo, ornare at dapibus at, feugiat vel nisl. Vestibulum malesuada pellentesque massa laoreet dictum. Curabitur fringilla iaculis aliquam. Pellentesque tincidunt malesuada massa vitae egestas. Aliquam sollicitudin elit sit amet nisl sodales, facilisis fermentum elit iaculis. Morbi dolor ipsum, vehicula in condimentum nec, ornare at nunc. Quisque hendrerit ante sed velit rhoncus faucibus. Fusce eget nisl vel orci laoreet semper. Quisque erat sapien, sodales ut leo at, iaculis pretium risus.
-
-Sed suscipit aliquam pretium. Morbi a velit id dui lacinia dignissim eu sed turpis. Pellentesque venenatis lorem risus, eu volutpat massa dapibus sed. Quisque vehicula sed erat id lacinia. Nam ut faucibus nisl, nec iaculis ligula. Vestibulum condimentum, purus in sagittis fermentum, dolor ante lacinia felis, sed dapibus metus dui vel ligula. Suspendisse scelerisque metus turpis, ac facilisis enim mollis ac.
-
-Donec aliquam mi quis velit feugiat eleifend. Mauris at sem libero. In et mi non justo porta semper. Ut efficitur, justo sed cursus dignissim, nisl mi fermentum leo, faucibus efficitur sem felis ut tellus. Sed dapibus purus dui, in consectetur urna pellentesque non. Nunc non neque vel arcu semper vestibulum. Maecenas nisl odio, mollis sit amet iaculis ut, hendrerit a felis.
-
-Aenean facilisis at eros et dignissim. Aenean id lacus quis enim cursus facilisis a quis lorem. Ut semper aliquam scelerisque. Proin gravida tortor eu dignissim consequat. Pellentesque felis magna, tincidunt a mauris in, condimentum tristique felis. Nam consequat nec odio a sollicitudin. Donec eget volutpat libero. Nunc in luctus enim. Aliquam sed pharetra leo, et dictum nisl. Morbi nec neque id lacus lacinia 
-        </div>
-        <div class="anchor" id="Skills">
-            <h2>Skills</h2>
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula tortor quis ligula suscipit sagittis. Donec rhoncus erat sed quam eleifend varius. Duis ut eleifend ipsum. Fusce facilisis porttitor libero, at finibus diam mattis sed. Maecenas ultrices odio vel elementum auctor. Nullam sit amet varius mauris. Maecenas vitae arcu sed orci lobortis sodales at eget arcu. Nulla feugiat fermentum odio. Pellentesque feugiat bibendum sapien, at molestie ligula pulvinar eu. Sed iaculis non felis ut finibus. Aliquam sapien elit, venenatis quis interdum ut, congue sodales nisi. Etiam tempor id lacus sit amet tincidunt.
-
-Suspendisse ac eleifend sapien. Sed orci ex, tristique id augue sit amet, tempus euismod nulla. Aenean eget auctor eros. Vivamus nibh justo, ornare at dapibus at, feugiat vel nisl. Vestibulum malesuada pellentesque massa laoreet dictum. Curabitur fringilla iaculis aliquam. Pellentesque tincidunt malesuada massa vitae egestas. Aliquam sollicitudin elit sit amet nisl sodales, facilisis fermentum elit iaculis. Morbi dolor ipsum, vehicula in condimentum nec, ornare at nunc. Quisque hendrerit ante sed velit rhoncus faucibus. Fusce eget nisl vel orci laoreet semper. Quisque erat sapien, sodales ut leo at, iaculis pretium risus.
-
-Sed suscipit aliquam pretium. Morbi a velit id dui lacinia dignissim eu sed turpis. Pellentesque venenatis lorem risus, eu volutpat massa dapibus sed. Quisque vehicula sed erat id lacinia. Nam ut faucibus nisl, nec iaculis ligula. Vestibulum condimentum, purus in sagittis fermentum, dolor ante lacinia felis, sed dapibus metus dui vel ligula. Suspendisse scelerisque metus turpis, ac facilisis enim mollis ac.
-
-Donec aliquam mi quis velit feugiat eleifend. Mauris at sem libero. In et mi non justo porta semper. Ut efficitur, justo sed cursus dignissim, nisl mi fermentum leo, faucibus efficitur sem felis ut tellus. Sed dapibus purus dui, in consectetur urna pellentesque non. Nunc non neque vel arcu semper vestibulum. Maecenas nisl odio, mollis sit amet iaculis ut, hendrerit a felis.
-
-Aenean facilisis at eros et dignissim. Aenean id lacus quis enim cursus facilisis a quis lorem. Ut semper aliquam scelerisque. Proin gravida tortor eu dignissim consequat. Pellentesque felis magna, tincidunt a mauris in, condimentum tristique felis. Nam consequat nec odio a sollicitudin. Donec eget volutpat libero. Nunc in luctus enim. Aliquam sed pharetra leo, et dictum nisl. Morbi nec neque id lacus lacinia 
-        </div>
-        <div class="anchor" id="Certificates">
-            <h2>Certificates</h2>
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula tortor quis ligula suscipit sagittis. Donec rhoncus erat sed quam eleifend varius. Duis ut eleifend ipsum. Fusce facilisis porttitor libero, at finibus diam mattis sed. Maecenas ultrices odio vel elementum auctor. Nullam sit amet varius mauris. Maecenas vitae arcu sed orci lobortis sodales at eget arcu. Nulla feugiat fermentum odio. Pellentesque feugiat bibendum sapien, at molestie ligula pulvinar eu. Sed iaculis non felis ut finibus. Aliquam sapien elit, venenatis quis interdum ut, congue sodales nisi. Etiam tempor id lacus sit amet tincidunt.
-
-Suspendisse ac eleifend sapien. Sed orci ex, tristique id augue sit amet, tempus euismod nulla. Aenean eget auctor eros. Vivamus nibh justo, ornare at dapibus at, feugiat vel nisl. Vestibulum malesuada pellentesque massa laoreet dictum. Curabitur fringilla iaculis aliquam. Pellentesque tincidunt malesuada massa vitae egestas. Aliquam sollicitudin elit sit amet nisl sodales, facilisis fermentum elit iaculis. Morbi dolor ipsum, vehicula in condimentum nec, ornare at nunc. Quisque hendrerit ante sed velit rhoncus faucibus. Fusce eget nisl vel orci laoreet semper. Quisque erat sapien, sodales ut leo at, iaculis pretium risus.
-
-Sed suscipit aliquam pretium. Morbi a velit id dui lacinia dignissim eu sed turpis. Pellentesque venenatis lorem risus, eu volutpat massa dapibus sed. Quisque vehicula sed erat id lacinia. Nam ut faucibus nisl, nec iaculis ligula. Vestibulum condimentum, purus in sagittis fermentum, dolor ante lacinia felis, sed dapibus metus dui vel ligula. Suspendisse scelerisque metus turpis, ac facilisis enim mollis ac.
-
-Donec aliquam mi quis velit feugiat eleifend. Mauris at sem libero. In et mi non justo porta semper. Ut efficitur, justo sed cursus dignissim, nisl mi fermentum leo, faucibus efficitur sem felis ut tellus. Sed dapibus purus dui, in consectetur urna pellentesque non. Nunc non neque vel arcu semper vestibulum. Maecenas nisl odio, mollis sit amet iaculis ut, hendrerit a felis.
-
-Aenean facilisis at eros et dignissim. Aenean id lacus quis enim cursus facilisis a quis lorem. Ut semper aliquam scelerisque. Proin gravida tortor eu dignissim consequat. Pellentesque felis magna, tincidunt a mauris in, condimentum tristique felis. Nam consequat nec odio a sollicitudin. Donec eget volutpat libero. Nunc in luctus enim. Aliquam sed pharetra leo, et dictum nisl. Morbi nec neque id lacus lacinia 
-        </div>
-        <div class="anchor" id="Education">
-            <h2>Education</h2>
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula tortor quis ligula suscipit sagittis. Donec rhoncus erat sed quam eleifend varius. Duis ut eleifend ipsum. Fusce facilisis porttitor libero, at finibus diam mattis sed. Maecenas ultrices odio vel elementum auctor. Nullam sit amet varius mauris. Maecenas vitae arcu sed orci lobortis sodales at eget arcu. Nulla feugiat fermentum odio. Pellentesque feugiat bibendum sapien, at molestie ligula pulvinar eu. Sed iaculis non felis ut finibus. Aliquam sapien elit, venenatis quis interdum ut, congue sodales nisi. Etiam tempor id lacus sit amet tincidunt.
-
-Suspendisse ac eleifend sapien. Sed orci ex, tristique id augue sit amet, tempus euismod nulla. Aenean eget auctor eros. Vivamus nibh justo, ornare at dapibus at, feugiat vel nisl. Vestibulum malesuada pellentesque massa laoreet dictum. Curabitur fringilla iaculis aliquam. Pellentesque tincidunt malesuada massa vitae egestas. Aliquam sollicitudin elit sit amet nisl sodales, facilisis fermentum elit iaculis. Morbi dolor ipsum, vehicula in condimentum nec, ornare at nunc. Quisque hendrerit ante sed velit rhoncus faucibus. Fusce eget nisl vel orci laoreet semper. Quisque erat sapien, sodales ut leo at, iaculis pretium risus.
-
-Sed suscipit aliquam pretium. Morbi a velit id dui lacinia dignissim eu sed turpis. Pellentesque venenatis lorem risus, eu volutpat massa dapibus sed. Quisque vehicula sed erat id lacinia. Nam ut faucibus nisl, nec iaculis ligula. Vestibulum condimentum, purus in sagittis fermentum, dolor ante lacinia felis, sed dapibus metus dui vel ligula. Suspendisse scelerisque metus turpis, ac facilisis enim mollis ac.
-
-Donec aliquam mi quis velit feugiat eleifend. Mauris at sem libero. In et mi non justo porta semper. Ut efficitur, justo sed cursus dignissim, nisl mi fermentum leo, faucibus efficitur sem felis ut tellus. Sed dapibus purus dui, in consectetur urna pellentesque non. Nunc non neque vel arcu semper vestibulum. Maecenas nisl odio, mollis sit amet iaculis ut, hendrerit a felis.
-
-Aenean facilisis at eros et dignissim. Aenean id lacus quis enim cursus facilisis a quis lorem. Ut semper aliquam scelerisque. Proin gravida tortor eu dignissim consequat. Pellentesque felis magna, tincidunt a mauris in, condimentum tristique felis. Nam consequat nec odio a sollicitudin. Donec eget volutpat libero. Nunc in luctus enim. Aliquam sed pharetra leo, et dictum nisl. Morbi nec neque id lacus lacinia 
-        </div>
-        <div class="anchor" id="Employment">
-            <h2>Employment</h2>
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula tortor quis ligula suscipit sagittis. Donec rhoncus erat sed quam eleifend varius. Duis ut eleifend ipsum. Fusce facilisis porttitor libero, at finibus diam mattis sed. Maecenas ultrices odio vel elementum auctor. Nullam sit amet varius mauris. Maecenas vitae arcu sed orci lobortis sodales at eget arcu. Nulla feugiat fermentum odio. Pellentesque feugiat bibendum sapien, at molestie ligula pulvinar eu. Sed iaculis non felis ut finibus. Aliquam sapien elit, venenatis quis interdum ut, congue sodales nisi. Etiam tempor id lacus sit amet tincidunt.
-
-Suspendisse ac eleifend sapien. Sed orci ex, tristique id augue sit amet, tempus euismod nulla. Aenean eget auctor eros. Vivamus nibh justo, ornare at dapibus at, feugiat vel nisl. Vestibulum malesuada pellentesque massa laoreet dictum. Curabitur fringilla iaculis aliquam. Pellentesque tincidunt malesuada massa vitae egestas. Aliquam sollicitudin elit sit amet nisl sodales, facilisis fermentum elit iaculis. Morbi dolor ipsum, vehicula in condimentum nec, ornare at nunc. Quisque hendrerit ante sed velit rhoncus faucibus. Fusce eget nisl vel orci laoreet semper. Quisque erat sapien, sodales ut leo at, iaculis pretium risus.
-
-Sed suscipit aliquam pretium. Morbi a velit id dui lacinia dignissim eu sed turpis. Pellentesque venenatis lorem risus, eu volutpat massa dapibus sed. Quisque vehicula sed erat id lacinia. Nam ut faucibus nisl, nec iaculis ligula. Vestibulum condimentum, purus in sagittis fermentum, dolor ante lacinia felis, sed dapibus metus dui vel ligula. Suspendisse scelerisque metus turpis, ac facilisis enim mollis ac.
-
-Donec aliquam mi quis velit feugiat eleifend. Mauris at sem libero. In et mi non justo porta semper. Ut efficitur, justo sed cursus dignissim, nisl mi fermentum leo, faucibus efficitur sem felis ut tellus. Sed dapibus purus dui, in consectetur urna pellentesque non. Nunc non neque vel arcu semper vestibulum. Maecenas nisl odio, mollis sit amet iaculis ut, hendrerit a felis.
-
-Aenean facilisis at eros et dignissim. Aenean id lacus quis enim cursus facilisis a quis lorem. Ut semper aliquam scelerisque. Proin gravida tortor eu dignissim consequat. Pellentesque felis magna, tincidunt a mauris in, condimentum tristique felis. Nam consequat nec odio a sollicitudin. Donec eget volutpat libero. Nunc in luctus enim. Aliquam sed pharetra leo, et dictum nisl. Morbi nec neque id lacus lacinia 
-        </div>
-        <div class="anchor" id="Contact">
-            <h2>Contact</h2>
-
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula tortor quis ligula suscipit sagittis. Donec rhoncus erat sed quam eleifend varius. Duis ut eleifend ipsum. Fusce facilisis porttitor libero, at finibus diam mattis sed. Maecenas ultrices odio vel elementum auctor. Nullam sit amet varius mauris. Maecenas vitae arcu sed orci lobortis sodales at eget arcu. Nulla feugiat fermentum odio. Pellentesque feugiat bibendum sapien, at molestie ligula pulvinar eu. Sed iaculis non felis ut finibus. Aliquam sapien elit, venenatis quis interdum ut, congue sodales nisi. Etiam tempor id lacus sit amet tincidunt.
-
-Suspendisse ac eleifend sapien. Sed orci ex, tristique id augue sit amet, tempus euismod nulla. Aenean eget auctor eros. Vivamus nibh justo, ornare at dapibus at, feugiat vel nisl. Vestibulum malesuada pellentesque massa laoreet dictum. Curabitur fringilla iaculis aliquam. Pellentesque tincidunt malesuada massa vitae egestas. Aliquam sollicitudin elit sit amet nisl sodales, facilisis fermentum elit iaculis. Morbi dolor ipsum, vehicula in condimentum nec, ornare at nunc. Quisque hendrerit ante sed velit rhoncus faucibus. Fusce eget nisl vel orci laoreet semper. Quisque erat sapien, sodales ut leo at, iaculis pretium risus.
-
-Sed suscipit aliquam pretium. Morbi a velit id dui lacinia dignissim eu sed turpis. Pellentesque venenatis lorem risus, eu volutpat massa dapibus sed. Quisque vehicula sed erat id lacinia. Nam ut faucibus nisl, nec iaculis ligula. Vestibulum condimentum, purus in sagittis fermentum, dolor ante lacinia felis, sed dapibus metus dui vel ligula. Suspendisse scelerisque metus turpis, ac facilisis enim mollis ac.
-
-Donec aliquam mi quis velit feugiat eleifend. Mauris at sem libero. In et mi non justo porta semper. Ut efficitur, justo sed cursus dignissim, nisl mi fermentum leo, faucibus efficitur sem felis ut tellus. Sed dapibus purus dui, in consectetur urna pellentesque non. Nunc non neque vel arcu semper vestibulum. Maecenas nisl odio, mollis sit amet iaculis ut, hendrerit a felis.
-
-Aenean facilisis at eros et dignissim. Aenean id lacus quis enim cursus facilisis a quis lorem. Ut semper aliquam scelerisque. Proin gravida tortor eu dignissim consequat. Pellentesque felis magna, tincidunt a mauris in, condimentum tristique felis. Nam consequat nec odio a sollicitudin. Donec eget volutpat libero. Nunc in luctus enim. Aliquam sed pharetra leo, et dictum nisl. Morbi nec neque id lacus lacinia 
-        </div>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula tortor quis ligula suscipit sagittis. Donec rhoncus
+    erat sed quam eleifend varius. Duis ut eleifend ipsum. Fusce facilisis porttitor libero, at finibus diam mattis sed.
+    Maecenas ultrices odio vel elementum auctor. Nullam sit amet varius mauris. Maecenas vitae arcu sed orci lobortis sodales
+    at eget arcu. Nulla feugiat fermentum odio. Pellentesque feugiat bibendum sapien, at molestie ligula pulvinar eu. Sed
+    iaculis non felis ut finibus. Aliquam sapien elit, venenatis quis interdum ut, congue sodales nisi. Etiam tempor id lacus
+    sit amet tincidunt. Suspendisse ac eleifend sapien. Sed orci ex, tristique id augue sit amet, tempus euismod nulla. Aenean
+    eget auctor eros. Vivamus nibh justo, ornare at dapibus at, feugiat vel nisl. Vestibulum malesuada pellentesque massa
+    laoreet dictum. Curabitur fringilla iaculis aliquam. Pellentesque tincidunt malesuada massa vitae egestas. Aliquam sollicitudin
+    elit sit amet nisl sodales, facilisis fermentum elit iaculis. Morbi dolor ipsum, vehicula in condimentum nec, ornare
+    at nunc. Quisque hendrerit ante sed velit rhoncus faucibus. Fusce eget nisl vel orci laoreet semper. Quisque erat sapien,
+    sodales ut leo at, iaculis pretium risus. Sed suscipit aliquam pretium. Morbi a velit id dui lacinia dignissim eu sed
+    turpis. Pellentesque venenatis lorem risus, eu volutpat massa dapibus sed. Quisque vehicula sed erat id lacinia. Nam
+    ut faucibus nisl, nec iaculis ligula. Vestibulum condimentum, purus in sagittis fermentum, dolor ante lacinia felis,
+    sed dapibus metus dui vel ligula. Suspendisse scelerisque metus turpis, ac facilisis enim mollis ac. Donec aliquam mi
+    quis velit feugiat eleifend. Mauris at sem libero. In et mi non justo porta semper. Ut efficitur, justo sed cursus dignissim,
+    nisl mi fermentum leo, faucibus efficitur sem felis ut tellus. Sed dapibus purus dui, in consectetur urna pellentesque
+    non. Nunc non neque vel arcu semper vestibulum. Maecenas nisl odio, mollis sit amet iaculis ut, hendrerit a felis. Aenean
+    facilisis at eros et dignissim. Aenean id lacus quis enim cursus facilisis a quis lorem. Ut semper aliquam scelerisque.
+    Proin gravida tortor eu dignissim consequat. Pellentesque felis magna, tincidunt a mauris in, condimentum tristique felis.
+    Nam consequat nec odio a sollicitudin. Donec eget volutpat libero. Nunc in luctus enim. Aliquam sed pharetra leo, et
+    dictum nisl. Morbi nec neque id lacus lacinia
+    <div >
+        <div class="progress-bar" style="width: 400px">
+    java
+    <div class="bar static">
     </div>
+    <div class="bar progress" style="width: 37%; background-color:green">
+    </div>
+</div>
+        <div class="progress-bar" style="width: 400px">
+    c++
+    <div class="bar static">
+    </div>
+    <div class="bar progress" style="width: 21%; background-color:yellow">
+    </div>
+</div>
+        <div class="progress-bar" style="width: 400px">
+    python
+    <div class="bar static">
+    </div>
+    <div class="bar progress" style="width: 88%; background-color:#123465">
+    </div>
+</div>
+    </div>
+    
+    
 
+</div> <div class="anchor section-certificates" id="certificates">
+    <h2>Certificates</h2>
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula tortor quis ligula suscipit sagittis. Donec rhoncus
+    erat sed quam eleifend varius. Duis ut eleifend ipsum. Fusce facilisis porttitor libero, at finibus diam mattis sed.
+    Maecenas ultrices odio vel elementum auctor. Nullam sit amet varius mauris. Maecenas vitae arcu sed orci lobortis sodales
+    at eget arcu. Nulla feugiat fermentum odio. Pellentesque feugiat bibendum sapien, at molestie ligula pulvinar eu. Sed
+    iaculis non felis ut finibus. Aliquam sapien elit, venenatis quis interdum ut, congue sodales nisi. Etiam tempor id lacus
+    sit amet tincidunt. Suspendisse ac eleifend sapien. Sed orci ex, tristique id augue sit amet, tempus euismod nulla. Aenean
+    eget auctor eros. Vivamus nibh justo, ornare at dapibus at, feugiat vel nisl. Vestibulum malesuada pellentesque massa
+    laoreet dictum. Curabitur fringilla iaculis aliquam. Pellentesque tincidunt malesuada massa vitae egestas. Aliquam sollicitudin
+    elit sit amet nisl sodales, facilisis fermentum elit iaculis. Morbi dolor ipsum, vehicula in condimentum nec, ornare
+    at nunc. Quisque hendrerit ante sed velit rhoncus faucibus. Fusce eget nisl vel orci laoreet semper. Quisque erat sapien,
+    sodales ut leo at, iaculis pretium risus. Sed suscipit aliquam pretium. Morbi a velit id dui lacinia dignissim eu sed
+    turpis. Pellentesque venenatis lorem risus, eu volutpat massa dapibus sed. Quisque vehicula sed erat id lacinia. Nam
+    ut faucibus nisl, nec iaculis ligula. Vestibulum condimentum, purus in sagittis fermentum, dolor ante lacinia felis,
+    sed dapibus metus dui vel ligula. Suspendisse scelerisque metus turpis, ac facilisis enim mollis ac. Donec aliquam mi
+    quis velit feugiat eleifend. Mauris at sem libero. In et mi non justo porta semper. Ut efficitur, justo sed cursus dignissim,
+    nisl mi fermentum leo, faucibus efficitur sem felis ut tellus. Sed dapibus purus dui, in consectetur urna pellentesque
+    non. Nunc non neque vel arcu semper vestibulum. Maecenas nisl odio, mollis sit amet iaculis ut, hendrerit a felis. Aenean
+    facilisis at eros et dignissim. Aenean id lacus quis enim cursus facilisis a quis lorem. Ut semper aliquam scelerisque.
+    Proin gravida tortor eu dignissim consequat. Pellentesque felis magna, tincidunt a mauris in, condimentum tristique felis.
+    Nam consequat nec odio a sollicitudin. Donec eget volutpat libero. Nunc in luctus enim. Aliquam sed pharetra leo, et
+    dictum nisl. Morbi nec neque id lacus lacinia
+</div>
+        <div class="anchor section-education" id="education">
+    <h2>Education</h2>
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula tortor quis ligula suscipit sagittis. Donec rhoncus
+    erat sed quam eleifend varius. Duis ut eleifend ipsum. Fusce facilisis porttitor libero, at finibus diam mattis sed.
+    Maecenas ultrices odio vel elementum auctor. Nullam sit amet varius mauris. Maecenas vitae arcu sed orci lobortis sodales
+    at eget arcu. Nulla feugiat fermentum odio. Pellentesque feugiat bibendum sapien, at molestie ligula pulvinar eu. Sed
+    iaculis non felis ut finibus. Aliquam sapien elit, venenatis quis interdum ut, congue sodales nisi. Etiam tempor id lacus
+    sit amet tincidunt. Suspendisse ac eleifend sapien. Sed orci ex, tristique id augue sit amet, tempus euismod nulla. Aenean
+    eget auctor eros. Vivamus nibh justo, ornare at dapibus at, feugiat vel nisl. Vestibulum malesuada pellentesque massa
+    laoreet dictum. Curabitur fringilla iaculis aliquam. Pellentesque tincidunt malesuada massa vitae egestas. Aliquam sollicitudin
+    elit sit amet nisl sodales, facilisis fermentum elit iaculis. Morbi dolor ipsum, vehicula in condimentum nec, ornare
+    at nunc. Quisque hendrerit ante sed velit rhoncus faucibus. Fusce eget nisl vel orci laoreet semper. Quisque erat sapien,
+    sodales ut leo at, iaculis pretium risus. Sed suscipit aliquam pretium. Morbi a velit id dui lacinia dignissim eu sed
+    turpis. Pellentesque venenatis lorem risus, eu volutpat massa dapibus sed. Quisque vehicula sed erat id lacinia. Nam
+    ut faucibus nisl, nec iaculis ligula. Vestibulum condimentum, purus in sagittis fermentum, dolor ante lacinia felis,
+    sed dapibus metus dui vel ligula. Suspendisse scelerisque metus turpis, ac facilisis enim mollis ac. Donec aliquam mi
+    quis velit feugiat eleifend. Mauris at sem libero. In et mi non justo porta semper. Ut efficitur, justo sed cursus dignissim,
+    nisl mi fermentum leo, faucibus efficitur sem felis ut tellus. Sed dapibus purus dui, in consectetur urna pellentesque
+    non. Nunc non neque vel arcu semper vestibulum. Maecenas nisl odio, mollis sit amet iaculis ut, hendrerit a felis. Aenean
+    facilisis at eros et dignissim. Aenean id lacus quis enim cursus facilisis a quis lorem. Ut semper aliquam scelerisque.
+    Proin gravida tortor eu dignissim consequat. Pellentesque felis magna, tincidunt a mauris in, condimentum tristique felis.
+    Nam consequat nec odio a sollicitudin. Donec eget volutpat libero. Nunc in luctus enim. Aliquam sed pharetra leo, et
+    dictum nisl. Morbi nec neque id lacus lacinia
+</div> <div class="anchor section-employment" id="employment">
+    <h2>Employment</h2>
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula tortor quis ligula suscipit sagittis. Donec rhoncus
+    erat sed quam eleifend varius. Duis ut eleifend ipsum. Fusce facilisis porttitor libero, at finibus diam mattis sed.
+    Maecenas ultrices odio vel elementum auctor. Nullam sit amet varius mauris. Maecenas vitae arcu sed orci lobortis sodales
+    at eget arcu. Nulla feugiat fermentum odio. Pellentesque feugiat bibendum sapien, at molestie ligula pulvinar eu. Sed
+    iaculis non felis ut finibus. Aliquam sapien elit, venenatis quis interdum ut, congue sodales nisi. Etiam tempor id lacus
+    sit amet tincidunt. Suspendisse ac eleifend sapien. Sed orci ex, tristique id augue sit amet, tempus euismod nulla. Aenean
+    eget auctor eros. Vivamus nibh justo, ornare at dapibus at, feugiat vel nisl. Vestibulum malesuada pellentesque massa
+    laoreet dictum. Curabitur fringilla iaculis aliquam. Pellentesque tincidunt malesuada massa vitae egestas. Aliquam sollicitudin
+    elit sit amet nisl sodales, facilisis fermentum elit iaculis. Morbi dolor ipsum, vehicula in condimentum nec, ornare
+    at nunc. Quisque hendrerit ante sed velit rhoncus faucibus. Fusce eget nisl vel orci laoreet semper. Quisque erat sapien,
+    sodales ut leo at, iaculis pretium risus. Sed suscipit aliquam pretium. Morbi a velit id dui lacinia dignissim eu sed
+    turpis. Pellentesque venenatis lorem risus, eu volutpat massa dapibus sed. Quisque vehicula sed erat id lacinia. Nam
+    ut faucibus nisl, nec iaculis ligula. Vestibulum condimentum, purus in sagittis fermentum, dolor ante lacinia felis,
+    sed dapibus metus dui vel ligula. Suspendisse scelerisque metus turpis, ac facilisis enim mollis ac. Donec aliquam mi
+    quis velit feugiat eleifend. Mauris at sem libero. In et mi non justo porta semper. Ut efficitur, justo sed cursus dignissim,
+    nisl mi fermentum leo, faucibus efficitur sem felis ut tellus. Sed dapibus purus dui, in consectetur urna pellentesque
+    non. Nunc non neque vel arcu semper vestibulum. Maecenas nisl odio, mollis sit amet iaculis ut, hendrerit a felis. Aenean
+    facilisis at eros et dignissim. Aenean id lacus quis enim cursus facilisis a quis lorem. Ut semper aliquam scelerisque.
+    Proin gravida tortor eu dignissim consequat. Pellentesque felis magna, tincidunt a mauris in, condimentum tristique felis.
+    Nam consequat nec odio a sollicitudin. Donec eget volutpat libero. Nunc in luctus enim. Aliquam sed pharetra leo, et
+    dictum nisl. Morbi nec neque id lacus lacinia
+</div> <div class="anchor section-contact" id="contact">
+    <h2>Contact</h2>
+
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula tortor quis ligula suscipit sagittis. Donec rhoncus
+    erat sed quam eleifend varius. Duis ut eleifend ipsum. Fusce facilisis porttitor libero, at finibus diam mattis sed.
+    Maecenas ultrices odio vel elementum auctor. Nullam sit amet varius mauris. Maecenas vitae arcu sed orci lobortis sodales
+    at eget arcu. Nulla feugiat fermentum odio. Pellentesque feugiat bibendum sapien, at molestie ligula pulvinar eu. Sed
+    iaculis non felis ut finibus. Aliquam sapien elit, venenatis quis interdum ut, congue sodales nisi. Etiam tempor id lacus
+    sit amet tincidunt. Suspendisse ac eleifend sapien. Sed orci ex, tristique id augue sit amet, tempus euismod nulla. Aenean
+    eget auctor eros. Vivamus nibh justo, ornare at dapibus at, feugiat vel nisl. Vestibulum malesuada pellentesque massa
+    laoreet dictum. Curabitur fringilla iaculis aliquam. Pellentesque tincidunt malesuada massa vitae egestas. Aliquam sollicitudin
+    elit sit amet nisl sodales, facilisis fermentum elit iaculis. Morbi dolor ipsum, vehicula in condimentum nec, ornare
+    at nunc. Quisque hendrerit ante sed velit rhoncus faucibus. Fusce eget nisl vel orci laoreet semper. Quisque erat sapien,
+    sodales ut leo at, iaculis pretium risus. Sed suscipit aliquam pretium. Morbi a velit id dui lacinia dignissim eu sed
+    turpis. Pellentesque venenatis lorem risus, eu volutpat massa dapibus sed. Quisque vehicula sed erat id lacinia. Nam
+    ut faucibus nisl, nec iaculis ligula. Vestibulum condimentum, purus in sagittis fermentum, dolor ante lacinia felis,
+    sed dapibus metus dui vel ligula. Suspendisse scelerisque metus turpis, ac facilisis enim mollis ac. Donec aliquam mi
+    quis velit feugiat eleifend. Mauris at sem libero. In et mi non justo porta semper. Ut efficitur, justo sed cursus dignissim,
+    nisl mi fermentum leo, faucibus efficitur sem felis ut tellus. Sed dapibus purus dui, in consectetur urna pellentesque
+    non. Nunc non neque vel arcu semper vestibulum. Maecenas nisl odio, mollis sit amet iaculis ut, hendrerit a felis. Aenean
+    facilisis at eros et dignissim. Aenean id lacus quis enim cursus facilisis a quis lorem. Ut semper aliquam scelerisque.
+    Proin gravida tortor eu dignissim consequat. Pellentesque felis magna, tincidunt a mauris in, condimentum tristique felis.
+    Nam consequat nec odio a sollicitudin. Donec eget volutpat libero. Nunc in luctus enim. Aliquam sed pharetra leo, et
+    dictum nisl. Morbi nec neque id lacus lacinia
+</div>
+    </div>
+        
     <!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
     crossorigin="anonymous"></script>
