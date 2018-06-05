@@ -22,12 +22,24 @@
     Proin gravida tortor eu dignissim consequat. Pellentesque felis magna, tincidunt a mauris in, condimentum tristique felis.
     Nam consequat nec odio a sollicitudin. Donec eget volutpat libero. Nunc in luctus enim. Aliquam sed pharetra leo, et
     dictum nisl. Morbi nec neque id lacus lacinia
-    <div >
-        @@include('./components/progress_bar.html', {"percent":"37%", "text":"java", "color":"green"})
-        @@include('./components/progress_bar.html', {"percent":"21%", "text":"c++", "color":"yellow"})
-        @@include('./components/progress_bar.html', {"percent":"88%", "text":"python", "color":"#123465"})
+    <div>
+        @@include('./components/progress_bar.html', {"percent":"37%", "text":"java", "color":"green"}) @@include('./components/progress_bar.html',
+        {"percent":"21%", "text":"c++", "color":"yellow"}) @@include('./components/progress_bar.html', {"percent":"88%",
+        "text":"python", "color":"#123465"})
     </div>
     @@include('./components/circular_progress_bar.html')
-    
+    <canvas id="skill-view" width="600" height="600" style="position: relative">
+    </canvas>
+    <script>
+        drawSkillChart(
+            document.getElementById("skill-view").getContext("2d"),
+            150, // size
+            300, // center x
+            300, // center y
+            10, // max weight
+            [["Java",8],["JavaScript",4],["C++",6],["C",8],["Python",5],["Dart",2],["HTML",5],["CSS",3],["CSS",10],["CSS",1],["CSS",3],["CSS",7],["CSS",6]]  // labeled weights
+            );
+    </script>
+
 
 </div>
